@@ -7,6 +7,7 @@ import { CalculadoraService } from '../services';
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent implements OnInit {
+  public display: string = this.calculadoraService.display;
 
   constructor(private calculadoraService: CalculadoraService) { }
 
