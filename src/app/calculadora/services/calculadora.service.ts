@@ -11,8 +11,12 @@ export class CalculadoraService {
 
 
   adicionarNumero(valor: string): string {
-    this.display = '';
-    this.display += valor;
+    if (this.display === '0') {
+      this.display = '';
+      this.display += valor;
+    } else {
+      this.display += valor;
+    }
     return this.display;
   }
 }
