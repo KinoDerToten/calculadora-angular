@@ -14,4 +14,9 @@ export class CalculadoraComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  adicionaNumero(valor: string): string {
+    this.display = this.calculadoraService.adicionarNumero(valor);
+    return this.display;
+  }
+
 }

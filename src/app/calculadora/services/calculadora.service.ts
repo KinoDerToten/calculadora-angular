@@ -10,7 +10,9 @@ export class CalculadoraService {
 
 
 
-  adicionarNumero(): void {
-
+  adicionarNumero(valor: string): string {
+    this.display = '';
+    this.display += valor;
+    return this.display;
   }
 }
