@@ -15,60 +15,64 @@
       <button class="times fs-5 bg-secondary"><i class="fas fa-percent"></i></button>
     </div>
     <div class="col">
-      <button class="times fs-5 text-white bg-warning"><i class="fas fa-divide"></i></button>
+      <button class="times fs-5 text-white bg-warning" (click)="operacaoCalculo('/')"><i
+          class="fas fa-divide"></i></button>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('7')">7</button>
+      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionarNumero('7')">7</button>
     </div>
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('8')">8</button>
+      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionarNumero('8')">8</button>
     </div>
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('9')">9</button>
+      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionarNumero('9')">9</button>
     </div>
     <div class="col">
-      <button class="times fs-5 text-white bg-warning"><i class="fas fa-times"></i></button>
-    </div>
-  </div>
-  <div class="row mt-2">
-    <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('4')">4</button>
-    </div>
-    <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('5')">5</button>
-    </div>
-    <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('6')">6</button>
-    </div>
-    <div class="col">
-      <button class="times fs-5 text-white bg-warning"><i class="fas fa-minus"></i></button>
+      <button class="times fs-5 text-white bg-warning" (click)="operacaoCalculo('*')"><i
+          class="fas fa-times"></i></button>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('1')">1</button>
+      <button class="numbers fs-5 text-white bg-secondary">4</button>
     </div>
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('2')">2</button>
+      <button class="numbers fs-5 text-white bg-secondary">5</button>
     </div>
     <div class="col">
-      <button class="numbers fs-5 text-white bg-secondary" (click)="adicionaNumero('3')">3</button>
+      <button class="numbers fs-5 text-white bg-secondary">6</button>
     </div>
     <div class="col">
-      <button class="times fs-5 text-white bg-warning"><i class="fas fa-plus"></i></button>
+      <button class="times fs-5 text-white bg-warning" (click)="operacaoCalculo('-')"><i
+          class="fas fa-minus"></i></button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <button class="numbers fs-5 text-white bg-secondary">1</button>
+    </div>
+    <div class="col">
+      <button class="numbers fs-5 text-white bg-secondary">2</button>
+    </div>
+    <div class="col">
+      <button class="numbers fs-5 text-white bg-secondary">3</button>
+    </div>
+    <div class="col">
+      <button class="times fs-5 text-white bg-warning" (click)="operacaoCalculo('+')"><i
+          class="fas fa-plus"></i></button>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-6">
-      <button class="zero fs-5 text-white bg-secondary" (click)="adicionaNumero('0')">0</button>
+      <button class="zero fs-5 text-white bg-secondary">0</button>
     </div>
     <div class="col">
       <button class="dot fs-5 text-white bg-secondary">.</button>
     </div>
     <div class="col">
-      <button class="times fs-5 text-white bg-warning"><i class="fas fa-equals"></i></button>
+      <button class="times fs-5 text-white bg-warning" (click)="calcular()"><i class="fas fa-equals"></i></button>
     </div>
   </div>
 </div>
