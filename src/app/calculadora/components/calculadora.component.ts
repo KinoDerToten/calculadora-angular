@@ -13,7 +13,6 @@ export class CalculadoraComponent implements OnInit {
   public novoValor: string = null;
   public resultado: number;
   public valorPendente: string = null;
-  public ehNovoNumero: boolean = true;
 
   constructor(public calculadoraService: CalculadoraService) {
 
@@ -23,10 +22,9 @@ export class CalculadoraComponent implements OnInit {
   }
 
   adicionarNumero(numero: string): void {
-    if (this.ehNovoNumero) {
+    if (this.display === '0') {
       this.display = '';
       this.display += numero;
-      this.ehNovoNumero = false;
     } else {
       this.display += numero;
     }
