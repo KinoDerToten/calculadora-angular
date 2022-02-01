@@ -10,7 +10,7 @@ export class CalculadoraComponent implements OnInit {
   public display: string = '0';
   public primeiroValor: string;
   public operacao: string = null;
-  public segundoValor: string;
+  public segundoValor: string = null;
   public resultado: number;
 
   constructor(public calculadoraService: CalculadoraService) {
@@ -34,16 +34,20 @@ export class CalculadoraComponent implements OnInit {
       this.primeiroValor = this.display;
       this.display = '';
       this.operacao = operacao;
+    } else {
+      this.operacao = operacao;
     }
   }
 
   calcular(): string {
-    if (this.operacao != null) {
-      this.segundoValor = this.display;
-    }
 
     switch (this.operacao) {
       case '+':
+        if (this.segundoValor == null) {
+          this.segundoValor = this.display;
+        } else {
+
+        }
         this.resultado = parseFloat(this.primeiroValor) + parseFloat(this.segundoValor);
         break;
       case '-':
