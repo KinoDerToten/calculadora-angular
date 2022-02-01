@@ -8,10 +8,11 @@ import { CalculadoraService } from '../services';
 })
 export class CalculadoraComponent implements OnInit {
   public display: string = '0';
-  public primeiroValor: string;
+  public valorAtual: string;
   public operacao: string = null;
-  public segundoValor: string = null;
+  public novoValor: string = null;
   public resultado: number;
+  public valorPendente: string = null;
 
   constructor(public calculadoraService: CalculadoraService) {
 
@@ -31,33 +32,32 @@ export class CalculadoraComponent implements OnInit {
 
   operacaoCalculo(operacao: string): void {
     if (this.operacao == null) {
-      this.primeiroValor = this.display;
+      this.valorAtual = this.display;
       this.display = '';
       this.operacao = operacao;
     } else {
       this.operacao = operacao;
+      this.display = '';
     }
   }
 
   calcular(): string {
+    if (this.operacao != null) {
+      this.novoValor = this.display;
+    }
 
     switch (this.operacao) {
       case '+':
-        if (this.segundoValor == null) {
-          this.segundoValor = this.display;
-        } else {
-
-        }
-        this.resultado = parseFloat(this.primeiroValor) + parseFloat(this.segundoValor);
+        this.resultado = parseFloat(this.valorAtual) + parseFloat(this.novoValor);
         break;
       case '-':
-        this.resultado = parseFloat(this.primeiroValor) - parseFloat(this.segundoValor);
+        this.resultado = parseFloat(this.valorAtual) - parseFloat(this.novoValor);
         break;
       case '/':
-        this.resultado = parseFloat(this.primeiroValor) / parseFloat(this.segundoValor);
+        this.resultado = parseFloat(this.valorAtual) / parseFloat(this.novoValor);
         break;
       case '*':
-        this.resultado = parseFloat(this.primeiroValor) * parseFloat(this.segundoValor);
+        this.resultado = parseFloat(this.valorAtual) * parseFloat(this.novoValor);
         break;
       default:
         this.resultado = 0;
