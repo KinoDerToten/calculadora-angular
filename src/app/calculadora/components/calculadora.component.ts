@@ -38,7 +38,7 @@ export class CalculadoraComponent implements OnInit {
     } else {
       this.operacao = operacao;
       this.display = '';
-      this.valorAtual = this.resultado.toString();
+      this.valorAtual = this.resultado.toString(); algo
     }
   }
 
