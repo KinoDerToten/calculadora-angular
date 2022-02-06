@@ -1,7 +1,7 @@
 <div class="container-fluid container-main bg-dark">
   <div class="row">
     <div class="col">
-      <div id="display" class="text-end text-white fs-1">{{ display }}</div>
+      <input type="text" class="form-control text-end text-white fs-1 bg-dark input-lg" [value]="display">
     </div>
   </div>
   <div class="row mt-2">
@@ -72,7 +72,7 @@
       <button class="dot fs-5 text-white bg-secondary">.</button>
     </div>
     <div class="col">
-      <button class="times fs-5 text-white bg-warning" (click)="calcular()"><i class="fas fa-equals"></i></button>
+      <button class="times fs-5 text-white bg-warning"><i class="fas fa-equals" (click)="calcular()"></i></button>
     </div>
   </div>
 </div>
