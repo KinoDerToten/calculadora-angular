@@ -36,67 +36,14 @@ export class CalculadoraComponent implements OnInit {
   operacaoCalculo(operacao: string): void {
     this.operacao = operacao;
 
-    if (this.valorAtual != ' ' && this.novoValor != ' ') {
-      switch (this.operacao) {
-        case '+':
-          this.resultado = parseFloat(this.valorAtual) + parseFloat(this.novoValor);
-          break;
-        case '-':
-          this.resultado = parseFloat(this.valorAtual) - parseFloat(this.novoValor);
-          break;
-        case '/':
-          this.resultado = parseFloat(this.valorAtual) / parseFloat(this.novoValor);
-          break;
-        case '*':
-          this.resultado = parseFloat(this.valorAtual) * parseFloat(this.novoValor);
-          break;
-        default:
-          this.resultado = 0;
-          break;
-      }
-      console.log(this.valorAtual + ' ' + this.novoValor);
-      this.display = this.resultado.toString();
-      this.valorAtual = this.resultado.toString();
-      this.novoValor = ' ';
-      console.log(this.resultado);
-    }
-
-    /*if (this.valorAtual === null) {
-      this.valorAtual = this.display;
-      this.display = ''
+    if (this.novoValor == ' ') {
+      this.novoValor = '0';
+      this.calcular();
     } else {
-      this.novoValor = this.display;
-      this.display = '';
+      this.calcular();
     }
-
-    if (this.valorAtual != null && this.novoValor != null) {
-      switch (this.operacao) {
-        case '+':
-          this.valorPendente = parseFloat(this.valorAtual) + parseFloat(this.novoValor);
-          this.valorAtual = this.valorPendente.toString();
-          break;
-        case '-':
-          this.valorPendente = parseFloat(this.valorAtual) - parseFloat(this.novoValor);
-          this.valorAtual = this.valorPendente.toString();
-          break;
-        case '/':
-          this.valorPendente = parseFloat(this.valorAtual) / parseFloat(this.novoValor);
-          this.valorAtual = this.valorPendente.toString();
-          break;
-        case '*':
-          this.valorPendente = parseFloat(this.valorAtual) * parseFloat(this.novoValor);
-          this.valorAtual = this.valorPendente.toString();
-          break;
-        default:
-          this.valorPendente = 0;
-          break;
-      }
-      this.resultado = parseFloat(this.valorAtual);
-    } else {
-      this.resultado = parseFloat(this.valorAtual);
-    }
-    console.log(this.resultado);*/
   }
+
   calcular(): void {
     switch (this.operacao) {
       case '+':
@@ -118,6 +65,5 @@ export class CalculadoraComponent implements OnInit {
     this.display = this.resultado.toString();
     this.valorAtual = this.resultado.toString();
     this.novoValor = ' ';
-    console.log(this.valorAtual + ' ' + this.novoValor);
   }
 }
