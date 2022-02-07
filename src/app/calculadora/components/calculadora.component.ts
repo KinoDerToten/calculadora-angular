@@ -8,12 +8,11 @@ import { CalculadoraService } from '../services';
 })
 export class CalculadoraComponent implements OnInit {
   public display: string = '0';
-  public valorAtual: string = null;
+  public valorAtual: string = ' ';
   public operacao: string = null;
-  public novoValor: string = null;
+  public novoValor: string = ' ';
   public resultado: number = null;
   public valorPendente: number = null;
-  public valor: string = null;
 
   constructor(public calculadoraService: CalculadoraService) {
 
@@ -23,24 +22,26 @@ export class CalculadoraComponent implements OnInit {
   }
 
   adicionarNumero(numero: string): void {
-    if (this.display === '0') {
-      this.display = '';
-      this.display += numero;
-      this.valor = this.display;
+    if (this.operacao === null) {
+      this.valorAtual += numero;
+      this.display = ''
+      this.display = this.valorAtual;
+      console.log(this.valorAtual);
     } else {
-      this.display += numero;
-      this.valor = this.display;
+      this.display = '';
+      this.novoValor += numero;
+      this.display = this.novoValor;
     }
   }
 
-  operacaoCalculo(operacao: string): number {
-    this.display = '';
+  operacaoCalculo(operacao: string): void {
     this.operacao = operacao;
-    if (this.valorAtual === null) {
-      this.valorAtual = this.valor;
-      this.display = '';
+
+    /*if (this.valorAtual === null) {
+      this.valorAtual = this.display;
+      this.display = ''
     } else {
-      this.novoValor = this.valor;
+      this.novoValor = this.display;
       this.display = '';
     }
 
@@ -70,29 +71,6 @@ export class CalculadoraComponent implements OnInit {
     } else {
       this.resultado = parseFloat(this.valorAtual);
     }
-    console.log(this.valorAtual);
-    return this.resultado;
-  }
-
-  calcular(): void {
-    this.novoValor = this.display;
-    switch (this.operacao) {
-      case '+':
-        this.resultado += parseFloat(this.novoValor);
-        break;
-      case '-':
-        this.resultado -= parseFloat(this.novoValor);
-        break;
-      case '/':
-        this.resultado /= parseFloat(this.novoValor);
-        break;
-      case '*':
-        this.resultado *= parseFloat(this.novoValor);
-        break;
-      default:
-        this.valorPendente = 0;
-        break;
-    }
-    this.display = this.resultado.toString();
+    console.log(this.resultado);*/
   }
 }
