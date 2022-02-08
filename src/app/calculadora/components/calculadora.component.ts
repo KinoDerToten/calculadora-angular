@@ -12,7 +12,8 @@ export class CalculadoraComponent implements OnInit {
   public operacao: string = null;
   public novoValor: string = ' ';
   public resultado: number = null;
-  public valorPendente: number = null;
+  public valorPendente: string = null;
+  public operacaoPendente: string = null;
 
   constructor(public calculadoraService: CalculadoraService) {
 
@@ -34,14 +35,10 @@ export class CalculadoraComponent implements OnInit {
   }
 
   operacaoCalculo(operacao: string): void {
-    this.operacao = operacao;
-
-    if (this.novoValor == ' ') {
-      this.novoValor = '0';
-      this.calcular();
-    } else {
+    if (this.operacao != null) {
       this.calcular();
     }
+    this.operacao = operacao;
   }
 
   calcular(): void {
