@@ -26,11 +26,24 @@ export class CalculadoraComponent implements OnInit {
     if (this.operacao === null) {
       this.valorAtual += numero;
       this.display = ''
+      this.numeroDecimal();
       this.display = this.valorAtual;
     } else {
       this.display = '';
       this.novoValor += numero;
+      this.numeroDecimal();
       this.display = this.novoValor;
+    }
+  }
+
+  numeroDecimal(): void {
+    if (this.valorAtual.indexOf('.') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.valorAtual.split('.');
+      this.valorAtual = [parteInteira, parteDecimal].toString();
+    }
+    if (this.novoValor.indexOf('.') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.novoValor.split('.');
+      this.novoValor = [parteInteira, parteDecimal].toString();
     }
   }
 
