@@ -27,31 +27,29 @@ export class CalculadoraComponent implements OnInit {
       this.valorAtual += numero;
       this.display = ''
       this.numeroDecimal();
-      this.display = this.valorAtual
-      console.log(this.display);
+      this.display = this.valorAtual;
+      console.log(this.valorAtual);
     } else {
       this.display = '';
       this.novoValor += numero;
       this.numeroDecimalNovoValor();
-      this.display = this.novoValor.replace(",", ".");
+      this.display = this.novoValor;
     }
   }
 
   numeroDecimal(): void {
-    if (this.valorAtual.indexOf(',') > -1) {
-      let numerosDecimais: string;
-      let [parteInteira, parteDecimal]: string[] = this.valorAtual.split(',');
-      numerosDecimais = [parteInteira, parteDecimal].toString();
-      this.valorAtual = numerosDecimais.replace(",", ".");
+    if (this.valorAtual.indexOf('.') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.valorAtual.split('.');
+      this.valorAtual = [parteInteira, parteDecimal].toString();
+      this.valorAtual = this.valorAtual.replace(",", ".");
     }
   }
 
   numeroDecimalNovoValor(): void {
-    if (this.novoValor.indexOf(',') > -1) {
-      let numerosDecimais: string;
-      let [parteInteira, parteDecimal]: string[] = this.novoValor.split(',');
-      numerosDecimais = [parteInteira, parteDecimal].toString();
-      this.novoValor = numerosDecimais.replace(",", ".");
+    if (this.novoValor.indexOf('.') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.novoValor.split('.');
+      this.novoValor = [parteInteira, parteDecimal].toString();
+      this.novoValor = this.novoValor.replace(",", ".");
     }
   }
 
