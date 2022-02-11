@@ -27,27 +27,31 @@ export class CalculadoraComponent implements OnInit {
       this.valorAtual += numero;
       this.display = ''
       this.numeroDecimal();
-      this.display = this.valorAtual;
-      console.log(this.valorAtual);
+      this.display = this.valorAtual
+      console.log(this.display);
     } else {
       this.display = '';
       this.novoValor += numero;
       this.numeroDecimalNovoValor();
-      this.display = this.novoValor;
+      this.display = this.novoValor.replace(",", ".");
     }
   }
 
   numeroDecimal(): void {
     if (this.valorAtual.indexOf(',') > -1) {
+      let numerosDecimais: string;
       let [parteInteira, parteDecimal]: string[] = this.valorAtual.split(',');
-      this.valorAtual = [parteInteira, parteDecimal].toString();
+      numerosDecimais = [parteInteira, parteDecimal].toString();
+      this.valorAtual = numerosDecimais.replace(",", ".");
     }
   }
 
   numeroDecimalNovoValor(): void {
     if (this.novoValor.indexOf(',') > -1) {
+      let numerosDecimais: string;
       let [parteInteira, parteDecimal]: string[] = this.novoValor.split(',');
-      this.valorAtual = [parteInteira, parteDecimal].toString();
+      numerosDecimais = [parteInteira, parteDecimal].toString();
+      this.novoValor = numerosDecimais.replace(",", ".");
     }
   }
 
