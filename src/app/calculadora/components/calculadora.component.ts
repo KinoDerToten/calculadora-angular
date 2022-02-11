@@ -40,8 +40,12 @@ export class CalculadoraComponent implements OnInit {
   numeroDecimal(): void {
     if (this.valorAtual.indexOf('.') > -1) {
       let [parteInteira, parteDecimal]: string[] = this.valorAtual.split('.');
+      if (parteInteira === ' ') {
+        parteInteira = '0';
+      }
       this.valorAtual = [parteInteira, parteDecimal].toString();
       this.valorAtual = this.valorAtual.replace(",", ".");
+      console.log([parteInteira]);
     }
   }
 
