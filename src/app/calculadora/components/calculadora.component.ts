@@ -28,22 +28,26 @@ export class CalculadoraComponent implements OnInit {
       this.display = ''
       this.numeroDecimal();
       this.display = this.valorAtual;
+      console.log(this.valorAtual);
     } else {
       this.display = '';
       this.novoValor += numero;
-      this.numeroDecimal();
+      this.numeroDecimalNovoValor();
       this.display = this.novoValor;
     }
   }
 
   numeroDecimal(): void {
-    if (this.valorAtual.indexOf('.') > -1) {
-      let [parteInteira, parteDecimal]: string[] = this.valorAtual.split('.');
+    if (this.valorAtual.indexOf(',') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.valorAtual.split(',');
       this.valorAtual = [parteInteira, parteDecimal].toString();
     }
-    if (this.novoValor.indexOf('.') > -1) {
-      let [parteInteira, parteDecimal]: string[] = this.novoValor.split('.');
-      this.novoValor = [parteInteira, parteDecimal].toString();
+  }
+
+  numeroDecimalNovoValor(): void {
+    if (this.novoValor.indexOf(',') > -1) {
+      let [parteInteira, parteDecimal]: string[] = this.novoValor.split(',');
+      this.valorAtual = [parteInteira, parteDecimal].toString();
     }
   }
 
