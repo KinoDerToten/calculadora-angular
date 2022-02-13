@@ -13,7 +13,6 @@ export class CalculadoraComponent implements OnInit {
   public novoValor: string = ' ';
   public resultado: number = null;
   public valorPendente: number = null;
-  public operacaoPendente: string = null;
 
   constructor(public calculadoraService: CalculadoraService) {
 
@@ -91,7 +90,10 @@ export class CalculadoraComponent implements OnInit {
   }
 
   inverterOperacao(): void {
-    if (this.operacao === null && parseFloat(this.valorAtual) >= 0) {
+    if (this.display === '0') {
+      this.valorPendente = parseFloat(this.display) * -1
+      this.display = this.valorPendente.toString();
+    } else if (this.operacao === null && parseFloat(this.valorAtual) >= 0) {
       this.valorPendente = parseFloat(this.valorAtual) * -1;
       this.valorAtual = this.valorPendente.toString();
       this.display = this.valorAtual;
@@ -100,5 +102,14 @@ export class CalculadoraComponent implements OnInit {
       this.valorAtual = this.valorPendente.toString();
       this.display = this.valorAtual;
     }
+  }
+
+  limpar(): void {
+    this.display = '0';
+    this.valorAtual = ' ';
+    this.operacao = null;
+    this.novoValor = ' ';
+    this.resultado = null;
+    this.valorPendente = null;
   }
 }
