@@ -28,7 +28,6 @@ export class CalculadoraComponent implements OnInit {
       this.display = ''
       this.numeroDecimal();
       this.display = this.valorAtual;
-      console.log(this.valorAtual);
     } else {
       this.display = '';
       this.novoValor += numero;
@@ -58,7 +57,7 @@ export class CalculadoraComponent implements OnInit {
   }
 
   operacaoCalculo(operacao: string): void {
-    if (this.operacao != null) {
+    if (this.operacao != null && this.novoValor != ' ') {
       this.calcular();
     }
     this.operacao = operacao;
@@ -68,15 +67,19 @@ export class CalculadoraComponent implements OnInit {
     switch (this.operacao) {
       case '+':
         this.resultado = parseFloat(this.valorAtual) + parseFloat(this.novoValor);
+        console.log(this.valorAtual + ' ' + this.novoValor);
         break;
       case '-':
         this.resultado = parseFloat(this.valorAtual) - parseFloat(this.novoValor);
+        console.log(this.valorAtual + ' ' + this.novoValor);
         break;
       case '/':
         this.resultado = parseFloat(this.valorAtual) / parseFloat(this.novoValor);
+        console.log(this.valorAtual + ' ' + this.novoValor);
         break;
       case '*':
         this.resultado = parseFloat(this.valorAtual) * parseFloat(this.novoValor);
+        console.log(this.valorAtual + ' ' + this.novoValor);
         break;
       default:
         this.resultado = 0;
