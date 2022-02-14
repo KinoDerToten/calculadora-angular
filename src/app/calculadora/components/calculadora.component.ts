@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { CalculadoraService } from '../services';
 
@@ -111,5 +112,32 @@ export class CalculadoraComponent implements OnInit {
     this.novoValor = ' ';
     this.resultado = null;
     this.valorPendente = null;
+  }
+
+  percent(): void {
+    let valuePercent: number;
+    if (this.novoValor != ' ') {
+      switch (this.operacao) {
+        case '+':
+          valuePercent = (parseFloat(this.novoValor) / 100) * parseFloat(this.valorAtual);
+          this.novoValor = valuePercent.toString();
+          break;
+        case '-':
+          valuePercent = (parseFloat(this.novoValor) / 100) * parseFloat(this.valorAtual);
+          this.novoValor = valuePercent.toString();
+          break;
+        case '*':
+          valuePercent = (parseFloat(this.novoValor) / 100);
+          this.novoValor = valuePercent.toString();
+          break;
+        case '/':
+          valuePercent = (parseFloat(this.novoValor) / 100);
+          this.novoValor = valuePercent.toString();
+          break;
+        default:
+          'selecione uma operação correta'
+          break;
+      }
+    }
   }
 }
