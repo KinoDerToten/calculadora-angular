@@ -37,7 +37,7 @@ export class CalculadoraComponent implements OnInit {
   }
 
   inverterOperacao(): void {
-    this.calculadoraService.inverterOperacao();
+    this.display = this.calculadoraService.inverterOperacao();
   }
 
   limpar(): void {
