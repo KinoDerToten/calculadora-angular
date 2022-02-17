@@ -9,7 +9,8 @@ export class CalculadoraService {
   public operacao: string = null;
   public novoValor: string = ' ';
   public resultado: number = null;
-  public valorPendente: number = null;
+  public valorInvertido: number = null;
+  public valorPendente: string = null;
 
   constructor() { }
 
@@ -22,6 +23,7 @@ export class CalculadoraService {
     } else {
       this.display = '';
       this.novoValor += numero;
+      this.valorPendente = this.novoValor;
       this.numeroDecimalNovoValor();
       this.display = this.novoValor;
     }
@@ -49,7 +51,7 @@ export class CalculadoraService {
 
   operacaoCalculo(operacao: string): string {
     let resultado: string;
-    if (this.operacao != null && this.novoValor != ' ') {
+    if (this.operacao != null && this.novoValor != '') {
       resultado = this.calcular();
       this.operacao = operacao;
       return resultado
@@ -60,6 +62,11 @@ export class CalculadoraService {
   }
 
   calcular(): string {
+    if (this.novoValor === '') {
+      this.novoValor = this.valorPendente;
+    }
+
+    console.log(this.novoValor);
     switch (this.operacao) {
       case '+':
         this.resultado = parseFloat(this.valorAtual) + parseFloat(this.novoValor);
@@ -79,22 +86,22 @@ export class CalculadoraService {
     }
     this.display = this.resultado.toString();
     this.valorAtual = this.resultado.toString();
-    this.novoValor = ' ';
+    this.novoValor = '';
 
     return this.display
   }
 
   inverterOperacao(): string {
     if (this.display === '0') {
-      this.valorPendente = parseFloat(this.display) * -1
-      this.display = this.valorPendente.toString();
+      this.valorInvertido = parseFloat(this.display) * -1
+      this.display = this.valorInvertido.toString();
     } else if (this.operacao === null && parseFloat(this.valorAtual) >= 0) {
-      this.valorPendente = parseFloat(this.valorAtual) * -1;
-      this.valorAtual = this.valorPendente.toString();
+      this.valorInvertido = parseFloat(this.valorAtual) * -1;
+      this.valorAtual = this.valorInvertido.toString();
       this.display = this.valorAtual;
     } else {
-      this.valorPendente = parseFloat(this.valorAtual) * -1;
-      this.valorAtual = this.valorPendente.toString();
+      this.valorInvertido = parseFloat(this.valorAtual) * -1;
+      this.valorAtual = this.valorInvertido.toString();
       this.display = this.valorAtual;
     }
 
@@ -107,7 +114,7 @@ export class CalculadoraService {
     this.operacao = null;
     this.novoValor = ' ';
     this.resultado = null;
-    this.valorPendente = null;
+    this.valorInvertido = null;
 
     return this.display
   }
