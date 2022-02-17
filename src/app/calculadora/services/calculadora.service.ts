@@ -115,6 +115,7 @@ export class CalculadoraService {
     this.novoValor = ' ';
     this.resultado = null;
     this.valorInvertido = null;
+    this.valorPendente = null;
 
     return this.display
   }

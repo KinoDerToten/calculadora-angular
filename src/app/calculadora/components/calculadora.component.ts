@@ -41,7 +41,7 @@ export class CalculadoraComponent implements OnInit {
   }
 
   limpar(): void {
-    this.calculadoraService.limpar();
+    this.display = this.calculadoraService.limpar();
   }
 
   percent(): void {
